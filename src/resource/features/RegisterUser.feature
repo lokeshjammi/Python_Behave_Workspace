@@ -1,0 +1,7 @@
+Feature: Register a new user
+
+  Scenario: Register user one
+    Given lauch browser and open the "properties.angular_practice_url"
+    When proper user details are entered
+    Then Click on Submit button and check the homepage
+    And Close the browser
