@@ -1,9 +1,15 @@
 from behave import given, when, then
 
-@given('lauch browser and open the "properties.angular_practice_url"')
-def step_impl(context):
-    pass
+from src.resource.CommonUtilities.CommonOperations import fetch_values_from_properties, launch_browser
 
+
+@given('lauch browser and open the "{url}"')
+def launch_browser_and_open_url(context, url):
+    if url.startswith('properties'):
+        print('Method starts')
+        url = url.split('properties.')[1]
+        url = fetch_values_from_properties(url, "config.properties")
+        launch_browser(context, url)
 
 @when('proper user details are entered')
 def step_impl(context):
